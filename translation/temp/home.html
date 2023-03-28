@@ -1,0 +1,41 @@
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'home.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Document</title>
+</head>
+<body>
+    <script src="{%static 'home.js'%}"></script>
+    <div class="root">
+        <form method="POST" class="col-11" id="translateform">
+        {% csrf_token %}
+        <div class="col-5" id="textfortranslate">
+                <textarea type="text" name="texttotrans" placeholder="enter your text" class="col-11" id="texttotrans"></textarea>
+                <button id="buttn" type="submit">Translate</button>
+        </div>
+        <div class="col-5" id="translatedtext">
+            <i class="material-icons" id="lang" onclick="languages2()">language</i>
+            <div class="col-11" id="langtotrans">
+                <input type="text" style="display: none;" id="lng" name="langs">
+                <p onclick="a()" style="cursor: pointer;" id="a">persian</p>
+                <p onclick="b()" style="cursor: pointer;" id="b">italian</p>
+                <p onclick="c()" style="cursor: pointer;" id="c">arabic</p>
+                <p onclick="d()" style="cursor: pointer;" id="d">spanish</p>
+                <p onclick="e()" style="cursor: pointer;" id="e">french</p>
+                <p onclick="f()" style="cursor: pointer;" id="f">chinese</p>
+                <p onclick="g()" style="cursor: pointer;" id="g">japanese</p>
+                <p onclick="h()" style="cursor: pointer;" id="h">english</p>
+            </div>
+            <h1 id="transedt" style="background-color:#ffffff;height:82%;
+            border-radius:5px;font-family:'tahoma';color:#000000" class="col-11">
+                {{translated}}
+            </h1>
+        </div>
+        </form>
+    </div>    
+</body>
+</html>
